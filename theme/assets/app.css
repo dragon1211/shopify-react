@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+/*=============== Critical CSS ===================*/
+.main-content {
+  opacity: 1;
+}
+
+.hide {
+  display: none !important;
+}

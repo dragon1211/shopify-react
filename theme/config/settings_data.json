@@ -1,0 +1,673 @@
+{
+  "current": {
+    "color_text": "#e96860",
+    "color_body_text": "#493e34",
+    "color_sale_text": "#e96860",
+    "color_button": "#e96860",
+    "color_button_text": "#ffffff",
+    "color_small_button_text_border": "#493e34",
+    "color_text_field_text": "#493e34",
+    "color_text_field_border": "#cccccc",
+    "color_text_field": "#ffffff",
+    "color_image_overlay_text": "#ffffff",
+    "color_image_overlay": "#f0f0f0",
+    "image_overlay_opacity": 40,
+    "color_borders": "#f0f0f0",
+    "color_body_bg": "#ffffff",
+    "type_header_font": "helvetica_n7",
+    "type_header_base_size": 24,
+    "type_base_font": "helvetica_n4",
+    "type_base_size": 16,
+    "predictive_search_enabled": false,
+    "share_facebook": true,
+    "share_twitter": true,
+    "share_pinterest": false,
+    "social_twitter_link": "https:\/\/twitter.com\/mamano9shoku",
+    "social_facebook_link": "https:\/\/www.facebook.com\/mamanokyushoku",
+    "social_pinterest_link": "",
+    "social_instagram_link": "https:\/\/www.instagram.com\/mama9_2020\/?hl=ja",
+    "social_tumblr_link": "",
+    "social_snapchat_link": "",
+    "social_youtube_link": "",
+    "social_vimeo_link": "",
+    "favicon": "shopify:\/\/shop_images\/logo_v.png",
+    "checkout_header_image": "",
+    "checkout_logo_image": "shopify:\/\/shop_images\/logo.png",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "small",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#ffffff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#f0f0f0",
+    "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_accent_color": "#e96860",
+    "checkout_button_color": "#e96860",
+    "checkout_error_color": "#e22120",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "align_logo": "left",
+          "logo": "shopify:\/\/shop_images\/logo.png",
+          "logo_max_width": 135,
+          "main_linklist": "main-menu",
+          "message": false,
+          "home_page_only": false,
+          "message_text": "ここで告知してください",
+          "message_link": "",
+          "color_bg": "#162950",
+          "color_text": "#ffffff"
+        }
+      },
+      "hero": {
+        "type": "hero",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/kv_resized.jpg",
+          "alignment": "center",
+          "hero_layout": "full_width",
+          "hero_size": "x-large",
+          "text_size": "medium",
+          "title": "",
+          "text": "",
+          "button_label": "",
+          "button_link": ""
+        }
+      },
+      "slideshow": {
+        "type": "slideshow",
+        "blocks": {
+          "slideshow-0": {
+            "type": "image",
+            "settings": {
+              "alignment": "center center",
+              "slide_title": "画像スライド",
+              "subheading": "あなたのブランドのストーリーをビデオや画像で伝える",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "1492095993817": {
+            "type": "image",
+            "settings": {
+              "alignment": "center",
+              "slide_title": "画像スライド",
+              "subheading": "あなたのブランドのストーリーをビデオや画像で伝える",
+              "button_label": "",
+              "button_link": ""
+            }
+          }
+        },
+        "block_order": [
+          "slideshow-0",
+          "1492095993817"
+        ],
+        "settings": {
+          "slideshow_height": "medium",
+          "text_size": "medium",
+          "text_alignment": "center center",
+          "show_overlay": true,
+          "autorotate": false,
+          "autorotate_speed": 5
+        }
+      },
+      "product-template": {
+        "type": "product-template",
+        "settings": {
+          "show_quantity_selector": false,
+          "show_vendor": false,
+          "enable_payment_button": true,
+          "show_share_buttons": true,
+          "media_size": "medium",
+          "enable_image_zoom": false,
+          "enable_video_looping": false
+        }
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "settings": {
+          "layout": "grid",
+          "grid": 2,
+          "rows": 4,
+          "show_collection_image": true,
+          "show_vendor": false,
+          "sort_enable": true,
+          "tags_enable": true
+        }
+      },
+      "blog-template": {
+        "type": "blog-template",
+        "settings": {
+          "layout": "grid",
+          "blog_show_author": true,
+          "blog_show_date": false
+        }
+      },
+      "article-template": {
+        "type": "article-template",
+        "settings": {
+          "blog_show_author": true,
+          "blog_show_date": true,
+          "show_share_buttons": true
+        }
+      },
+      "cart-template": {
+        "type": "cart-template",
+        "settings": {
+          "cart_ajax_enable": true,
+          "cart_notes_enable": true
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "link_list": {
+            "type": "link_list",
+            "settings": {
+              "title": "",
+              "menu": "footer"
+            }
+          }
+        },
+        "block_order": [
+          "link_list"
+        ],
+        "settings": {
+          "show_payment_icons": true,
+          "color_footer_bg": "#f0f0f0",
+          "color_footer_text": "#493e34",
+          "show_locale_selector": false,
+          "show_currency_selector": false
+        }
+      },
+      "product-recommendations": {
+        "type": "product-recommendations",
+        "settings": {
+          "show_product_recommendations": false,
+          "heading": "あなたへのおすすめ",
+          "show_vendor": false
+        }
+      },
+      "16336044960dca7d20": {
+        "type": "feature-row",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/kazoku.jpg",
+          "layout": "right",
+          "title": "ママに休養と栄養をお届けします",
+          "text": "<p>ママの休食は、ママとご家族に“休養と栄養を届ける”、食材や調理法にこだわった宅食サービスです。<br\/>「家事の生産性を高め、自由でゆとりある時間を増やし、得られた時間を“家族”や“自身”のために還元してほしい」、そんな想いから誕生しました。<\/p><p>ママとご家族の豊かな生活をサポートします。<\/p>",
+          "button_label": "商品一覧を見る",
+          "button_link": "shopify:\/\/collections\/all"
+        }
+      },
+      "16336045003ab2f5c2": {
+        "type": "feature-columns",
+        "blocks": {
+          "16336045003ab2f5c2-0": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify:\/\/shop_images\/23_bento.png",
+              "title": "ママと家族の栄養バランスが整う食事。おいしさをお届け",
+              "text": "<p>何かと気遣うことが多い時期。ママ達に安心して食べてもらうために独自栄養基準を設けたお弁当。お子さん・ご家族にも栄養を届けたいという声をいただき、ご家族の食事はママの休食に任せてもらえるように商品展開をしています。<\/p>",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "16336045003ab2f5c2-1": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify:\/\/shop_images\/08_sara_yori_7add0fe1-5817-4d09-b461-fd13c4c0819e.png",
+              "title": "家事の負担軽減をお手伝い",
+              "text": "<p>献立を「考える家事」、食材を「準備・調理する家事」、これらの時間を賢く時短。家族の栄養を考えて作られた商品は電子レンジで温めるだけ。忙しい日々の味方です。<\/p>",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "16336045003ab2f5c2-2": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify:\/\/shop_images\/tezukuri_6_4_square.png",
+              "title": "安心安全な食事をお届け。ご家族の健康を守ります",
+              "text": "<p>厳選した食材を使用し、調理過程において食品添加物は加えていません。また、国際的な食品安全マネジメントシステム「FSSC22000」取得工場にて製造しており、徹底した衛生管理体制を心がけています。<\/p>",
+              "button_label": "",
+              "button_link": ""
+            }
+          }
+        },
+        "block_order": [
+          "16336045003ab2f5c2-0",
+          "16336045003ab2f5c2-1",
+          "16336045003ab2f5c2-2"
+        ],
+        "settings": {
+          "title": "",
+          "align_text": "left"
+        }
+      },
+      "1633604521158b05f4": {
+        "type": "hero",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/syokuji_sara_52.jpg",
+          "alignment": "center",
+          "hero_layout": "full_width",
+          "hero_size": "medium",
+          "text_size": "medium",
+          "title": "LINE UP",
+          "text": "<p><strong>ラインナップ<\/strong><\/p>",
+          "button_label": "",
+          "button_link": ""
+        }
+      },
+      "163360452536f331aa": {
+        "type": "collection",
+        "settings": {
+          "title": "",
+          "collection": "all",
+          "grid": 3,
+          "rows": 2,
+          "show_vendor": false,
+          "show_view_all": false
+        }
+      },
+      "1633604539955a288a": {
+        "type": "feature-row",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/logo_omoi.png",
+          "layout": "left",
+          "title": "ママの休食にこめた想い",
+          "text": "<p>ママの休食では、若年女性の低体重や妊産婦の低栄養、低出生体重児の割合の高さなどの日本の健康問題・社会課題に目を向け、「ママに休養と栄養を届ける」ことをテーマに、サービスを展開してまいりました。 <\/p><p>しかし、多くの方にママの休食をご利用いただく中で、プレママや育児ママという女性のライフステージだけでなく、「ご家族」というライフステージにも休養と栄養の大きな課題があると気づきました。  ママの休食は「手抜きの手段」ではなく、「休養も栄養も補給できる賢い選択肢の一つ」となって、プレママ→育児ママ→ご家族へと変化するライフステージに合わせて、よりよいサービスの提供に努めてまいります。<\/p>",
+          "button_label": "",
+          "button_link": ""
+        }
+      }
+    },
+    "content_for_index": [
+      "hero"
+    ]
+  },
+  "presets": {
+    "Default": {
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {}
+        },
+        "hero-1": {
+          "type": "hero",
+          "settings": {
+            "hero_size": "large",
+            "text_size": "large"
+          }
+        },
+        "feature-row": {
+          "type": "feature-row",
+          "settings": {}
+        },
+        "feature-columns": {
+          "type": "feature-columns",
+          "blocks": {
+            "feature-columns-0": {
+              "type": "text_block",
+              "settings": {}
+            },
+            "feature-columns-1": {
+              "type": "text_block",
+              "settings": {}
+            },
+            "feature-columns-2": {
+              "type": "text_block",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "feature-columns-0",
+            "feature-columns-1",
+            "feature-columns-2"
+          ],
+          "settings": {
+            "title": ""
+          }
+        },
+        "collection": {
+          "type": "collection",
+          "settings": {
+            "grid": 4
+          }
+        },
+        "hero-2": {
+          "type": "hero",
+          "settings": {
+            "text_size": "large"
+          }
+        },
+        "quotes": {
+          "type": "quotes",
+          "blocks": {
+            "quotes-0": {
+              "type": "quote",
+              "settings": {}
+            },
+            "quotes-1": {
+              "type": "quote",
+              "settings": {}
+            },
+            "quotes-2": {
+              "type": "quote",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "quotes-0",
+            "quotes-1",
+            "quotes-2"
+          ],
+          "settings": {
+            "title": ""
+          }
+        },
+        "image-bar": {
+          "type": "image-bar",
+          "blocks": {
+            "image-bar-0": {
+              "type": "image",
+              "settings": {}
+            },
+            "image-bar-1": {
+              "type": "image",
+              "settings": {}
+            },
+            "image-bar-2": {
+              "type": "image",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "image-bar-0",
+            "image-bar-1",
+            "image-bar-2"
+          ],
+          "settings": {}
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "footer-0": {
+              "type": "link_list",
+              "settings": {}
+            },
+            "footer-1": {
+              "type": "newsletter",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "footer-0",
+            "footer-1"
+          ],
+          "settings": {
+            "show_payment_icons": true
+          }
+        }
+      },
+      "content_for_index": [
+        "hero-1",
+        "feature-row",
+        "feature-columns",
+        "collection",
+        "hero-2",
+        "quotes",
+        "image-bar"
+      ]
+    },
+    "Light": {
+      "color_text": "#162950",
+      "color_body_text": "#6d6d6d",
+      "color_sale_text": "#DA2F0C",
+      "color_borders": "#e4e4e4",
+      "color_button": "#DA2F0C",
+      "color_button_text": "#ffffff",
+      "color_small_button_text_border": "#162950",
+      "color_text_field": "#ffffff",
+      "color_text_field_text": "#162950",
+      "color_text_field_border": "#909090",
+      "color_image_overlay_text": "#ffffff",
+      "color_image_overlay": "#3d3d3d",
+      "image_overlay_opacity": 40,
+      "color_body_bg": "#f8f8f8",
+      "type_header_font": "muli_n6",
+      "type_header_base_size": 26,
+      "type_base_font": "muli_n4",
+      "type_base_size": 18,
+      "share_facebook": true,
+      "share_twitter": true,
+      "share_pinterest": true,
+      "social_twitter_link": "",
+      "social_facebook_link": "",
+      "social_pinterest_link": "",
+      "social_instagram_link": "",
+      "social_tumblr_link": "",
+      "social_snapchat_link": "",
+      "social_youtube_link": "",
+      "social_vimeo_link": "",
+      "favicon": "",
+      "checkout_header_image": "",
+      "checkout_logo_image": "",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "small",
+      "checkout_body_background_image": "",
+      "checkout_body_background_color": "#ffffff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_sidebar_background_image": "",
+      "checkout_sidebar_background_color": "#e8f3f6",
+      "checkout_heading_font": "Roboto",
+      "checkout_body_font": "Source Sans Pro",
+      "checkout_accent_color": "#1990c6",
+      "checkout_button_color": "#23314e",
+      "checkout_error_color": "#ff6d6d",
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "align_logo": "left",
+            "logo": "",
+            "logo_max_width": 135,
+            "main_linklist": "main-menu",
+            "message": true,
+            "color_bg": "#162950",
+            "color_text": "#ffffff"
+          }
+        },
+        "hero": {
+          "type": "hero",
+          "settings": {
+            "alignment": "center",
+            "hero_size": "x-large",
+            "text_size": "large"
+          }
+        },
+        "slideshow": {
+          "type": "slideshow",
+          "blocks": {
+            "slideshow-0": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "alignment": "center center"
+              }
+            },
+            "1492095993817": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "alignment": "center"
+              }
+            }
+          },
+          "block_order": [
+            "slideshow-0",
+            "1492095993817"
+          ],
+          "settings": {
+            "slideshow_height": "medium",
+            "text_size": "medium",
+            "autorotate": false,
+            "autorotate_speed": 5
+          }
+        },
+        "featured-collections": {
+          "type": "collection",
+          "settings": {
+            "grid": 3,
+            "rows": 1,
+            "show_vendor": true,
+            "show_view_all": true
+          }
+        },
+        "product-template": {
+          "type": "product-template",
+          "settings": {
+            "show_quantity_selector": false,
+            "show_vendor": false,
+            "show_share_buttons": true,
+            "media_size": "medium",
+            "enable_image_zoom": true,
+            "enable_video_looping": false
+          }
+        },
+        "collection-template": {
+          "type": "collection-template",
+          "settings": {
+            "layout": "grid",
+            "grid": 2,
+            "rows": 2,
+            "show_collection_image": true,
+            "show_vendor": false,
+            "sort_enable": true,
+            "tags_enable": true
+          }
+        },
+        "1492033809691": {
+          "type": "map",
+          "settings": {}
+        },
+        "1492033877875": {
+          "type": "quotes",
+          "blocks": {
+            "1492033877875-0": {
+              "type": "quote",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "1492033877875-0"
+          ],
+          "settings": {}
+        },
+        "1492033924902": {
+          "type": "custom-content",
+          "blocks": {
+            "1492033924902-0": {
+              "type": "text",
+              "settings": {
+                "width": "100%",
+                "alignment": "center",
+                "align_text": "center"
+              }
+            }
+          },
+          "block_order": [
+            "1492033924902-0"
+          ],
+          "settings": {
+            "title": ""
+          }
+        },
+        "1492096252560": {
+          "type": "collection-list",
+          "blocks": {
+            "1492096252560-0": {
+              "type": "featured_collection",
+              "settings": {}
+            },
+            "1492096252560-1": {
+              "type": "featured_collection",
+              "settings": {}
+            },
+            "1492096252560-2": {
+              "type": "featured_collection",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "1492096252560-0",
+            "1492096252560-1",
+            "1492096252560-2"
+          ],
+          "settings": {
+            "grid": 3
+          }
+        },
+        "blog-template": {
+          "type": "blog-template",
+          "settings": {
+            "layout": "grid",
+            "blog_show_author": true,
+            "blog_show_date": false
+          }
+        },
+        "article-template": {
+          "type": "article-template",
+          "settings": {
+            "blog_show_author": true,
+            "blog_show_date": true,
+            "show_share_buttons": true
+          }
+        },
+        "cart-template": {
+          "type": "cart-template",
+          "settings": {
+            "cart_notes_enable": false
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "link_list": {
+              "type": "link_list",
+              "settings": {}
+            },
+            "text": {
+              "type": "text",
+              "settings": {}
+            },
+            "newsletter": {
+              "type": "newsletter",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "link_list",
+            "text",
+            "newsletter"
+          ],
+          "settings": {
+            "color_footer_bg": "#f8f8f8",
+            "color_footer_text": "#6d6d6d"
+          }
+        }
+      },
+      "content_for_index": [
+        "hero",
+        "featured-collections",
+        "slideshow",
+        "1492033924902",
+        "1492096252560",
+        "1492033877875",
+        "1492033809691"
+      ]
+    }
+  }
+}

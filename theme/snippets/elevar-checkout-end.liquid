@@ -1,0 +1,200 @@
+<script>
+  (function() {
+    const configElement = document.getElementById("elevar-gtm-suite-config");
+
+    if (!configElement) {
+      console.error("Elevar Data Layer: Config element not found");
+      return;
+    }
+
+    const config = JSON.parse(configElement.textContent);
+
+    const script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = config.gtm_suite_script;
+
+    script.onerror = function() {
+      console.error("Elevar Data Layer: JS script failed to load");
+    };
+    script.onload = function() {
+      if (!window.ElevarGtmSuite) {
+        console.error("Elevar Data Layer: `ElevarGtmSuite` is not defined");
+        return;
+      }
+
+      if (config.event_config.user) {
+        window.ElevarGtmSuite.handlers.user({
+  {%- if checkout -%}
+    cartTotal: "{{- checkout.total_price | times: 0.01 | json -}}",
+  {%- else -%}
+    cartTotal: "{{- cart.total_price | times: 0.01 | json -}}",
+  {%- endif -%}
+  {%- if customer -%}
+    customer: {
+      id: "{{- customer.id | json -}}",
+      email: {{- customer.email | json -}},
+      firstName: {{- customer.first_name | json -}},
+      lastName: {{- customer.last_name | json -}},
+      phone: {{- customer.phone | json -}},
+      city: {{- customer.default_address.city | json -}},
+      zip: {{- customer.default_address.zip | json -}},
+      address1: {{- customer.default_address.address1 | json -}},
+      address2: {{- customer.default_address.address2 | json -}},
+      country: {{- customer.default_address.country | json -}},
+      province: {{- customer.default_address.province | json -}},
+      provinceCode: {{- customer.default_address.province_code | json -}},
+      orderCount: "{{- customer.orders_count | json -}}",
+      totalSpent: "{{- customer.total_spent | times: 0.01 | json -}}",
+      tags: {{- customer.tags | join: ', ' | json -}}
+    }
+  {%- endif -%}
+});
+      }
+
+      const cartData = {
+  attributes: {{- cart.attributes | json -}},
+  cartTotal: "{{- cart.total_price | times: 0.01 | json -}}",
+  currencyCode: {{- cart.currency.iso_code | json -}},
+  items: [
+    {%- for line_item in cart.items -%}
+      {
+        {%- if line_item.sku != blank -%}
+          id: {{- line_item.sku | json -}},
+        {%- else -%}
+          id: "{{- line_item.product_id | json -}}",
+        {%- endif -%}
+        name: {{- line_item.product.title | json -}},
+        brand: {{- line_item.vendor | json -}},
+        category: {{- line_item.product.type | json -}},
+        variant: {{- line_item.variant.title | json -}},
+        price: "{{- line_item.final_price | times: 0.01 | json -}}",
+        position: {{- forloop.index0 -}},
+        quantity: "{{- line_item.quantity | json -}}",
+        productId: "{{- line_item.product_id | json -}}",
+        variantId: "{{- line_item.variant_id -}}",
+        compareAtPrice: "{{- line_item.variant.compare_at_price | times: 0.01 | json -}}",
+        image: "{{- line_item.image | img_url -}}"
+      },
+    {%- endfor -%}
+  ]
+}
+;
+
+      if (config.event_config.save_order_notes) {
+        window.ElevarGtmSuite.handlers.cookieReconcile(cartData);
+        window.ElevarGtmSuite.handlers.paramReconcile(cartData);
+      }
+
+      {%- if checkout -%}
+        if (config.event_config.checkout_complete && Shopify.Checkout && Shopify.Checkout.page === "thank_you") {
+          window.ElevarGtmSuite.handlers.checkoutComplete({%- if checkout -%}
+  {
+    currencyCode: {{- checkout.currency | json -}},
+    actionField: {
+      {%- if order.id -%}
+        id: {{- order.id | json -}},
+      {%- else -%}
+        id: {{- checkout.id | json -}},
+      {%- endif -%}
+      {%- if order.name -%}
+        order_name: {{- order.name | json -}},
+      {%- endif -%}
+      affiliation: {{- shop.name | json -}},
+      revenue: "{{- checkout.total_price | times: 0.01 | json -}}",
+      tax: "{{- checkout.tax_price | times: 0.01 | json -}}",
+      shipping: "{{- checkout.shipping_price | times: 0.01 | json -}}",
+      {% if checkout.discount_applications %}
+        coupon: {{ checkout.discount_applications[0].title | json }},
+      {% endif %}
+      subTotal: "{{- checkout.line_items_subtotal_price | times: 0.01 | json -}}",
+      discountAmount: "{{- checkout.discounts_amount | times: 0.01 | json -}}"
+    },
+    {%- if checkout.customer -%}
+      customer: {
+        id: "{{- checkout.customer.id | json -}}",
+        email: {{- checkout.email | json -}},
+        firstName: {{- checkout.billing_address.first_name | json -}},
+        lastName: {{- checkout.billing_address.last_name | json -}},
+        {%- if checkout.customer.phone -%}
+          phone: {{- checkout.customer.phone | json -}},
+        {%- elsif checkout.billing_address.phone -%}
+          phone: {{- checkout.billing_address.phone | json -}},
+        {%- else -%}
+          phone: {{- checkout.shipping_address.phone | json -}},
+        {%- endif -%}
+        city: {{- checkout.billing_address.city | json -}},
+        zip: {{- checkout.billing_address.zip | json -}},
+        address1: {{- checkout.billing_address.address1 | json -}},
+        address2: {{- checkout.billing_address.address2 | json -}},
+        country: {{- checkout.billing_address.country | json -}},
+        province: {{- checkout.billing_address.province | json -}},
+        provinceCode: {{- checkout.billing_address.province_code | json -}},
+        orderCount: "{{- checkout.customer.orders_count | json -}}",
+        totalSpent: "{{- checkout.customer.total_spent | times: 0.01 | json -}}",
+        tags: {{- checkout.customer.tags | json -}}
+      },
+    {%- endif -%}
+    items: [
+      {%- for line_item in checkout.line_items -%}
+        {
+          id: {{- line_item.sku | json -}},
+          name: {{- line_item.product.title | json -}},
+          brand: {{- line_item.vendor | json -}},
+          category: {{- line_item.product.type | json -}},
+          variant: {{- line_item.variant.title | json -}},
+          price: "{{- line_item.final_price | times: 0.01 | json -}}",
+          quantity: "{{- line_item.quantity | json -}}",
+          productId: "{{- line_item.product_id | json -}}",
+          variantId: "{{- line_item.variant_id -}}",
+          image: "{{- line_item.image | img_url -}}"
+        },
+      {%- endfor -%}
+    ],
+    landingSite: {{- checkout.landing_site | json -}}
+  }
+{%- endif -%}
+);
+        }
+        if (Shopify.Checkout && Shopify.Checkout.page !== "thank_you") {
+          const checkoutStep = {%- if checkout -%}
+  {
+    currencyCode: {{- checkout.currency | json -}},
+    items: [
+      {%- for line_item in checkout.line_items -%}
+        {
+          id: {{- line_item.sku | json -}},
+          name: {{- line_item.product.title | json -}},
+          brand: {{- line_item.vendor | json -}},
+          category: {{- line_item.product.type | json -}},
+          variant: {{- line_item.variant.title | json -}},
+          price: "{{- line_item.final_price | times: 0.01 | json -}}",
+          quantity: "{{- line_item.quantity | json -}}",
+          productId: "{{- line_item.product_id | json -}}",
+          variantId: "{{- line_item.variant_id -}}",
+          compareAtPrice: "{{- line_item.variant.compare_at_price | times: 0.01 | json -}}",
+          image: "{{- line_item.image | img_url -}}"
+        },
+      {%- endfor -%}
+    ]
+  }
+{%- endif -%}
+;
+
+          if (config.event_config.cart_reconcile) {
+            window.ElevarGtmSuite.handlers.cartReconcile(checkoutStep);
+          }
+          if (config.event_config.checkout_step) {
+            window.ElevarGtmSuite.handlers.checkoutStep(checkoutStep);
+          }
+        }
+      {%- endif -%}
+    };
+
+    document.body.appendChild(script);
+  })();
+</script>
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-59Q34B4" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->

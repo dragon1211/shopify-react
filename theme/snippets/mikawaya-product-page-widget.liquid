@@ -1,0 +1,160 @@
+<!-- Mikawaya 商品ページウィジェット ver:3 -->
+{% if product.selling_plan_groups.size > 0 %}
+  <style>
+    .mikawaya-hidden {
+      display: none
+    }
+    .product__price {
+      display: none
+    }
+    .product-single__price {
+      display: none
+    }
+    .mikawaya-radio-button {
+      min-height:auto!important;
+    }
+    .mikawaya-selling-plan-group-container {
+      margin-bottom: 20px;
+    }
+    .mikawaya-selling-plan-description {
+      margin-left: 5px;
+      margin-top: 5px;
+    }
+    .mikawaya-selling-plan-select{
+      margin-top: 10px;
+    }
+    .mikawaya-product-page-widget-container {
+      width: 100%
+    }
+  </style>
+  
+  <!-- Just for initial use --> 
+  {%- liquid
+    if product.requires_selling_plan or product.selected_selling_plan_allocation
+      assign current_selling_plan_allocation = product.selected_or_first_available_selling_plan_allocation
+    else
+      assign current_selling_plan_allocation = nil
+    endif
+    
+    if product.selling_plan_groups.size > 1 or product.requires_selling_plan == false
+      assign show_fieldset = true
+    else 
+      assign show_fieldset = false
+    endif
+  -%}
+  
+  <div id="mikawaya-product-page-widget-container-v3">
+  </div>
+  
+  <div id="mikawaya-product-page-widget-container" class="mikawaya-hidden mikawaya-product-page-widget-container">
+  {% if show_fieldset %}
+    <fieldset id="mikawaya-fieldset">
+      <legend>
+          購入オプション
+      </legend>
+  {% endif %}
+  
+  {% unless product.requires_selling_plan == true %}
+    <div
+      class="mikawaya-selling-plan-group-container"
+    >
+      <input 
+        type="radio" 
+        name="purchase_option" 
+        {% if current_selling_plan_allocation == nil %} checked {% endif %}
+        value="one-time"
+        onchange="window.MIKAWAYA.handleSellingPlanGroupChange(event)"
+        class="mikawaya-radio-button"
+        id="one-time-purchase-option"
+      >
+      通常の購入
+      &nbsp;&nbsp;&nbsp;
+      {% for variant in product.variants %}
+        <span 
+          name="one-time-variant-price" 
+          data-variant-id="{{ variant.id }}"
+          {% unless product.selected_or_first_available_variant.id == variant.id %} 
+            class="mikawaya-hidden"
+          {% endunless %}
+          >{{ variant.price | money }}</span>
+      {% endfor %}
+    </div>
+    {% endunless %}
+    
+    {% for variant in product.variants %}
+      {% for selling_plan_allocation in variant.selling_plan_allocations %}
+        <div
+          name="variant-group-allocation"
+          data-variant-id="{{ variant.id }}"  
+          data-group-id="{{ selling_plan_allocation.selling_plan_group_id }}"
+          data-selling-plan-id="{{ selling_plan_allocation.selling_plan.id }}"
+          data-selling-plan-allocation-price="{{ selling_plan_allocation.price | money }}"
+          style="display:hidden"
+        ></div>
+      {% endfor %}
+    {% endfor %}
+    
+    
+    <!-- Selling plan groups -->
+    {% for group in product.selling_plan_groups %}
+      <div
+        name="selling-plan-group-container"
+        data-group-id="{{ group.id }}"
+        class="mikawaya-selling-plan-group-container mikawaya-hidden"
+      >
+        <div>
+        <input 
+          type="radio" 
+          value="{{ group.id }}" 
+          name="purchase_option"
+          onchange="window.MIKAWAYA.handleSellingPlanGroupChange(event)"
+          class="mikawaya-radio-button"
+          {% if group.id == current_selling_plan_allocation.selling_plan.group_id %} checked {% endif %}
+          {% if product.requires_selling_plan and current_selling_plan_allocation == nil and forloop.first %} checked {% endif %}
+          >
+        <span>{{ group.name }}&nbsp;&nbsp;&nbsp;<span name="group-inline-price" data-group-id="{{ group.id }}"></span></span>
+        </div>
+        <select 
+          name="select-selling-plan"
+          data-group-id="{{ group.id }}"
+          onchange="window.MIKAWAYA.handleSellingPlanChange(event)"
+          class="mikawaya-selling-plan-select"
+        >
+          <!-- Individual selling plans -->
+          {% for selling_plan in group.selling_plans %}
+            <option value="{{ selling_plan.id }}">{{ selling_plan.name }}</option>
+          {% endfor %}
+        </select>
+        {% for selling_plan in group.selling_plans %}
+          <p 
+            name="selling-plan-description" 
+            data-group-id="{{ group.id }}"
+            data-selling-plan-id="{{ selling_plan.id }}"
+            {% if forloop.first %} 
+              class="mikawaya-selling-plan-description" 
+            {% else %}
+              class="mikawaya-selling-plan-description mikawaya-hidden"
+            {% endif %}
+          >{{ selling_plan.description }}</p>
+        {% endfor %}
+      </div>
+    {% endfor %}
+  {% if show_fieldset %}
+    </fieldset>
+  {% endif %}
+  <input 
+    type="hidden" 
+    name="selling_plan" 
+    value="{{ current_selling_plan_allocation.selling_plan.id }}" 
+    id="mikawaya-hidden-selling-plan-id"
+  >
+  <div 
+    type="hidden" 
+    id="current-variant-id" 
+    data-variant-id="{{ product.selected_or_first_available_variant.id }}" 
+    class="mikawaya-hidden"
+    >
+  </div>
+  </div>
+{% endif %}
+ 

@@ -1,0 +1,89 @@
+.mikawaya-hidden {
+  display: none;
+}
+
+.product__price {
+  display: none;
+}
+
+.product-single__price {
+  display: none;
+}
+
+.mikawaya-price {
+  margin-top: "20px";
+  font-weight: bold;
+}
+
+.mikawaya-radio-button {
+  min-height: auto !important;
+}
+
+.mikawaya-selling-plan-group-container {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.mikawaya-selling-plan-description {
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+.mikawaya-product-page-widget-container {
+  width: 100%;
+}
+
+.mikawaya-one-time-or-subscription-selection-container {
+  display: flex;
+  flex-direction: row;
+}
+
+@media screen and (max-width: 480px) {
+  .mikawaya-one-time-or-subscription-selection-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.mikawaya-one-time-or-subscription-selection-box {
+  padding: 0px 6px;
+}
+
+.mikawaya-purchase-option-label {
+  width: 150px;
+  border-radius: 15px;
+  border: solid 5px #000;
+  cursor: pointer;
+  text-align: center;
+  padding: 20px 20px 20px;
+  position: relative;
+}
+
+.mikawaya-purchase-option-label__selected {
+  width: 150px;
+  border-radius: 15px;
+  border: solid 5px #eb6860;
+  cursor: pointer;
+  text-align: center;
+  padding: 20px 20px 20px;
+  position: relative;
+}
+
+.mikawaya-one-time-purchase-option-svg {
+  width: 60px;
+}
+.input-label {
+  fill: #000;
+}
+.input-label__selected {
+  fill: #eb6860;
+}
+.mikawaya-selected-purchase-option-svg {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 30px;
+}

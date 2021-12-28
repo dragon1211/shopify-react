@@ -1,0 +1,13 @@
+{%- assign baseUrl = "http://localhost:8003" -%}
+
+  {%- if "dev" == theme.name -%}
+    {%- assign baseUrl = "https://mamakyu-liquid-front-dev-hosting-bucket.s3.ap-northeast-1.amazonaws.com" -%}
+  {%- endif -%}
+  {%- if "stg" == theme.name -%}
+    {%- assign baseUrl = "https://mamakyu-liquid-front-stg-hosting-bucket.s3.ap-northeast-1.amazonaws.com" -%}
+  {%- endif -%}
+  {%- if "prod" == theme.name -%}
+    {%- assign baseUrl = "https://mamakyu-liquid-front-prod-hosting-bucket.s3.ap-northeast-1.amazonaws.com" -%}
+  {%- endif -%}
+
+{{- baseUrl -}}

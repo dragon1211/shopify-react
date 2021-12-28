@@ -1,0 +1,24 @@
+<link rel="dns-prefetch" href="https://cdn.secomapp.com/">
+<link rel="dns-prefetch" href="https://ajax.googleapis.com/">
+<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com/">
+<link rel="preload" as="stylesheet" href="{{ 'sca-pp.css' | asset_url }}">
+
+<link rel="stylesheet" href="{{ 'sca-pp.css' | asset_url }}">
+ <script>
+  {%if content_for_header contains "cdn.secomapp.com\/promotionpopup\/cdn" %}
+    SCAPPLive = {};
+  {% endif %}
+  SCAPPShop = {};
+    {% if customer %}
+  SCAPPShop.customer = {};
+  SCAPPShop.customer.first_name = '{{customer.first_name}}';
+  SCAPPShop.customer.last_name = '{{customer.last_name}}';
+  SCAPPShop.customer.email = '{{customer.email}}';
+  SCAPPShop.customer.verified_email = '{{customer.verified_email}}';
+  SCAPPShop.customer.accepts_marketing = '{{customer.accepts_marketing}}';
+  SCAPPShop.customer.has_account = '{{customer.has_account}}';
+  SCAPPShop.customer.id = '{{customer.id}}';
+  SCAPPShop.customer.tags  = {{customer.tags|json}};
+  SCAPPShop.customer.addresses = {{customer.addresses|json}};
+  {% endif %}
+  </script>

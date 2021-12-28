@@ -1,0 +1,42 @@
+{
+  "name": "mamakyu-liquid-front",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "tan-t <lee30x@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "deploy:dev": "node scripts/build.js && serverless deploy --stage dev --aws-profile mamakyu",
+    "deploy:stg": "node scripts/build.js && serverless deploy --stage stg --aws-profile mamakyu",
+    "deploy:prod": "node scripts/build.js && serverless deploy --stage prod --aws-profile mamakyu",
+    "watch": "node scripts/build.js --watch",
+    "deploy:theme:stg": "sh scripts/deploy-theme.sh 128049742014"
+  },
+  "dependencies": {
+    "@chakra-ui/icons": "^1.0.16",
+    "@chakra-ui/react": "^1.6.10",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
+    "currency.js": "^2.0.4",
+    "date-fns": "^2.25.0",
+    "framer-motion": "^4",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scroll": "^1.8.4"
+  },
+  "devDependencies": {
+    "@apollo/client": "^3.4.16",
+    "@contentful/rich-text-react-renderer": "^15.6.2",
+    "@contentful/rich-text-types": "^15.7.0",
+    "@types/react": "^17.0.32",
+    "@types/react-dom": "^17.0.10",
+    "esbuild": "^0.13.9",
+    "formik": "^2.2.9",
+    "graphql": "^16.0.1",
+    "react-reveal": "^1.2.2",
+    "serverless": "^2.64.1",
+    "serverless-s3-sync": "^1.17.1",
+    "typescript": "^4.4.4",
+    "yup": "^0.32.11"
+  }
+}

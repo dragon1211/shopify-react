@@ -27,3 +27,48 @@
 
 the spreadsheets
 https://docs.google.com/spreadsheets/d/1pIhKWez1GWfUr0e_k3EexPW06BVEaYaBHbQLyO_SUmY/edit#gid=0
+
+## theme development
+
+- テーマファイルを編集し、作成した React アプリを読み込むようにする必要がある。
+- `theme`ディレクトリでテーマファイルを管理する。
+
+### theme.css を読み込みたくない場合
+
+- `theme.css`を読み込んでしまうとレイアウトが崩れる画面の場合、`theme.liquid`の冒頭で`delta`変数が true になるように指定する。
+
+### script タグを埋め込む
+
+- 環境によって読み込む script を切り替えたいので、`theme.name`を src に埋め込むようにする。
+
+```liquid
+<div id="app"></div>
+<script src="{%- include 'app-script-base-url' -%}/pages/top/index.js"></script>
+```
+
+- `snippets/app-script-base-url.liquid` で、theme 名と読み込む先の URL を切り替えている。
+- theme 名が「dev」「stg」「prod」のいずれかなら S3 のバケットを、それ以外なら http://localhost:8003 を読み込むようにしている。
+
+### ローカルでの確認
+
+```bash
+cd theme
+shopify theme serve
+```
+
+### テーマのデプロイ
+
+- Shopify CLI のインストールおよびストアへのログインを完了する必要がある。
+- なお、CI 機から Shopify CLI でログインする方法は現状無い。
+
+```bash
+shopify login
+shopify login --store xn-u9jtma9302afe1f.myshopify.com
+```
+
+- デプロイ自体は`app/`から行える。
+
+```bash
+yarn deploy:stg # Reactアプリのデプロイ
+yarn deploy:theme:stg # テーマのデプロイ
+```
